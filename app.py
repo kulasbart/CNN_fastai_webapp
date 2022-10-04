@@ -26,7 +26,7 @@ intf = gr.Interface(
     fn=classify_bear, 
     inputs=image, 
     outputs=label, 
-    examples=examples
+    examples=examples,
     **interface_options)
 
 intf.launch(inline=False)
