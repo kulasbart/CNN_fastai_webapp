@@ -16,9 +16,17 @@ def classify_bear(img):
     pred,idx,probs = learn.predict(img)
     return dict(zip(categories, map(float,probs)))
 
+interface_options = {"title": "Bear Identifier"}
+
 image = gr.inputs.Image(shape=(192,192))
 label = gr.outputs.Label()
 examples = []
 
-intf = gr.Interface(fn=classify_bear, inputs=image, outputs=label, examples=examples)
+intf = gr.Interface(
+    fn=classify_bear, 
+    inputs=image, 
+    outputs=label, 
+    examples=examples
+    **interface_options)
+
 intf.launch(inline=False)
